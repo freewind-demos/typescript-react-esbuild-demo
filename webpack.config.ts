@@ -1,6 +1,7 @@
-import { Configuration } from 'webpack';
+import {Configuration} from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
+import {ESBuildPlugin} from 'esbuild-loader';
 
 const config: Configuration = {
   mode: 'development',
@@ -16,12 +17,16 @@ const config: Configuration = {
   module: {
     rules: [{
       test: /\.tsx?$/,
-      loader: 'ts-loader',
-      exclude: /node_modules/
-    }]
+      loader: 'esbuild-loader',
+      options: {
+        loader: 'tsx', // Or 'ts' if you don't need tsx
+        target: 'es6'
+      }
+    },]
   },
   plugins: [
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin(),
+    new ESBuildPlugin(),
   ]
 }
 

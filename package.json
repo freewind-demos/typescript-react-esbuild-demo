@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "demo": "webpack-dev-server --open"
+    "demo": "webpack-dev-server --open",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "react": "17.0.1",
@@ -14,6 +15,7 @@
     "@types/react-dom": "16.9.0",
     "@types/webpack": "4.41.25",
     "css-loader": "3.2.0",
+    "esbuild-loader": "2.8.0",
     "html-webpack-plugin": "3.2.0",
     "source-map-loader": "0.2.4",
     "strip-ansi": "6.0.0",
